@@ -1,0 +1,8 @@
+trash=$HOME/.trash
+tmp=$HOME/.tmp
+stamp=$(date +_%s); export stamp
+dir_c=$(tput bold && tput setaf 4)
+ps_c=$(tput bold && tput setaf 95)
+no_c=$(tput sgr0)
+PS1="${dir_c}\W ${ps_c}\$${no_c}: "
+export PS1 stamp trash tmp
