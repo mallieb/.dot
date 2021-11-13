@@ -5,4 +5,34 @@ dir_c=$(tput bold && tput setaf 4)
 ps_c=$(tput bold && tput setaf 95)
 no_c=$(tput sgr0)
 PS1="${dir_c}\W ${ps_c}\$${no_c}: "
-export PS1 stamp trash tmp
+bashrc=$(cat <<EOF
+#!/bin/bash
+HISTCONTROL=ignoreboth:..:cd:all:tree
+HISTSIZE=
+HISTFILESIZE=
+HISTTIMEFORMAT="%F_%T "
+
+shopt -s checkwinsize globstar histappend xpg_echo expand_aliases cdspell cmdhist
+
+set -C # Prevents output redirection from overwriting files
+
+dotdir=\$HOME/.dot
+dots() {
+	for i in $dotdir/*
+	do
+	if [[ -d $i ]]; then 	
+		shift
+	else
+		source $i
+	fi
+	done
+	[[ $i == *aliases ]] && exec $i
+}
+EOF
+)
+bash_profile=$(cat <<EOF
+. $HOME/.bashrc
+dots
+EOF
+)
+export PS1 stamp trash tmp bashrc bash_profile
