@@ -1,0 +1,36 @@
+#!/bin/bash
+config_file=""
+declare -A config_files
+config_files=(["r"]="$HOME/.bashrc"
+["f"]="$HOME/.profile"
+["a"]="$dotdir/alias"
+["c"]="$dotdir/fun"
+["b"]="$dotdir/var"
+["p"]="$dotdir/path")
+REPLY=""
+choices=$(cat <<EOF
+        [a]   Aliases	    [r]   Basic
+        [b]   Variables	    [f]   Profile	
+        [c]   Functions     [p]   Path
+EOF
+)
+while [[ $REPLY != "q" ]]
+do
+    clear
+    printf "\n  Fix Script\n"
+    printf " ____________\n"
+    printf "\n\n\tChoose which configuration to edit.\n\n"
+    printf "\n\t\tPress [q] to quit.\n"
+    printf "\n$choices\n\n"
+    printf "\tFile: "
+    read -n 1
+    if [[ $REPLY == q ]]; then 
+        break
+    else
+        vim ${!config_files[$REPLY]}
+        printf "\n\tYou finished editing \"${!config_files[$REPLY]}\"\n\t"
+        printf "Continue editing files?\n\t"
+        read -n 1 -p "[y]es | [q]uit "
+    fi
+done
+printf "\n\n\t\tGoodbye\n\n"

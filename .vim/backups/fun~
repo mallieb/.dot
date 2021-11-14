@@ -1,0 +1,31 @@
+#!/bin/bash
+
+..(){
+	cd ..
+}
+fix(){
+	c=""
+	declare -A config_files
+	config_files=([Quit]=""
+	[Basic]="$HOME/.bashrc"
+	[Profile]="$HOME/.profile"
+	[Aliases]="$dotdir/alias"
+	[Functions]="$dotdir/fun"
+	[Variables]="$dotdir/var"
+	[Path]="$dotdir/path")
+	until [[ $conf == "q" ]]
+	do
+		select c in ${!config_files[@]}
+		do
+		if [[ $c == "Quit" ]]
+		then
+		    echo $c
+		    config_file="$c"
+		    echo "Goodbye" && break && break
+		else
+		    config_file="${config_files[$c]}"
+		    echo $config_file
+		fi
+		done
+	done
+}

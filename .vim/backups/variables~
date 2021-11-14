@@ -31,8 +31,7 @@ dots() {
 EOF
 )
 bash_profile=$(cat <<EOF
-. $HOME/.bashrc
-dots
+
 EOF
 )
 export PS1 stamp trash tmp bashrc bash_profile

@@ -1,0 +1,6 @@
+locals=~/.local/bin:~/usr/.local/sbin:~/.local/games:/usr/local/bin:/usr/local/sbin
+zorin=/usr/bin:/usr/sbin:/bin:/sbin:/snap/bin
+my=$HOME/bin:$HOME.dot
+
+PATH=$my:$zorin:locals
+export PATH

@@ -1,0 +1,35 @@
+command WQ wq!
+command Q q!
+set title
+set showmatch
+set matchtime=1
+set selectmode=key,mouse
+set ruler
+set noerrorbells
+set novisualbell
+set visualbell t_vb=
+set t_vb=
+set t_Co=256
+set background=dark
+
+set tabstop=4
+set shiftwidth=0
+set expandtab
+set smartindent
+set backspace=eol,start,indent
+set wildmenu
+set wildmode=longest,list,full
+set magic
+set ignorecase
+set smartcase
+set incsearch
+
+set backup
+set undofile
+set backupdir=~/.dot/.vim/backups
+set directory=~/.dot/.vim/swaps
+set undodir=~/.dot/.vim/undo
+set viminfofile=~/.dot/.vim/viminfo
+
+set nocompatible
+set encoding=utf8

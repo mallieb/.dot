@@ -6,7 +6,8 @@ alias dlink="find -L $DIR -maxdepth 1 -type l -delete" # delete dead symlinks
 alias pipup="python3.9 -m pip install --upgrade pip"
 
 alias all="ls -A"
-alias tree='exa -T'
+alias TREE='exa -aT --color=always | less -r'
+alias tree='exa -T --color=always'
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'

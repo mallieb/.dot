@@ -1,0 +1,22 @@
+#!/bin/bash
+HISTCONTROL=ignoreboth:..:cd:all:tree
+HISTSIZE=
+HISTFILESIZE=
+HISTTIMEFORMAT="%F_%T "
+
+shopt -s checkwinsize globstar histappend xpg_echo expand_aliases cdspell cmdhist
+
+set -C # Prevents output redirection from overwriting files
+
+dotdir=/home/alex/.dot
+dots() {
+	for i in /home/alex/.dot/*
+	do
+	if [[ -d /home/alex/.dot/variables ]]; then 	
+		shift
+	else
+		source /home/alex/.dot/variables
+	fi
+	done
+	[[ /home/alex/.dot/variables == *aliases ]] && exec /home/alex/.dot/variables
+}
