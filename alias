@@ -1,0 +1,18 @@
+#!/bin/bash
+alias prc=". $HOME/.profile"
+alias teach="cd $HOME/teach && . .dot/var && . .dot/alias && . .dot/fun && . .dot/set_period"
+alias upup="sudo apt update && sudo apt upgrade && sudo apt autoremove"
+alias get="sudo apt-get -q -y -o Dpkg::Use-Pty=0 install"
+alias getip="curl -s http://checkip.dyndns.org | sed 's/[a-zA-Z<>/ :]//g'"
+alias dlink="find -L $DIR -maxdepth 1 -type l -delete" # delete dead symlinks
+alias pipup="python3.9 -m pip install --upgrade pip"
+
+alias all="ls -A"
+alias TREE='exa -aT --color=always | less -r'
+alias tree='exa -T --color=always'
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
